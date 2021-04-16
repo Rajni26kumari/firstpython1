@@ -122,9 +122,18 @@ namespace SalemQA.StepDefinations
             var _dropElement = BrowserConfig._driver.FindElement(By.XPath("//select[@id='orgDropdown']"));
             var _selectElement = new SelectElement(_dropElement);
             
-                _selectElement.SelectByText("3M Internal Group");
+             _selectElement.SelectByText("3M Internal Group");
             _driver.FindElement(By.XPath(ObjectIdentifiers._continuebtn)).Click();
 
+        }
+        [Then(@"Select the users organistion (.*)")]
+        public void ThenSelectTheUsersOrganistion(string org)
+        {
+            var _dropElement = BrowserConfig._driver.FindElement(By.XPath("//select[@id='orgDropdown']"));
+            var _selectElement = new SelectElement(_dropElement);
+
+            _selectElement.SelectByText(org);
+            _driver.FindElement(By.XPath(ObjectIdentifiers._continuebtn)).Click();
         }
 
         [Then(@"Navigate to Orgnazation and create a new one (.*),(.*),(.*),(.*),(.*),(.*),(.*),(.*),(.*),(.*),(.*),(.*)")]

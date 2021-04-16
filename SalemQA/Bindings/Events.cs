@@ -125,9 +125,11 @@ namespace SalemQA.Bindings
                 }
             }
             // rowCount = rowCount + 1;
+           // _driver = null;
             _driver.Close();
-                
-            }
+            _driver.Quit();
+            _driver = null;
+        }
             
         }
     }

@@ -72,9 +72,9 @@ namespace SalemQA.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Org Admin Accessiblity Improvements.")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", new string[] {
+        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", "NathCorp", new string[] {
                 "source:data.xlsx:sheet1"}, Category="source:data.xlsx:sheet1")]
-        public virtual void OrgAdminAccessiblityImprovements_(string orgusername, string orgpas, string[] exampleTags)
+        public virtual void OrgAdminAccessiblityImprovements_(string orgusername, string orgpas, string org, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -92,10 +92,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then(string.Format("In the Home Page, Click on the Login Link and enter the {0} and {1} to login with" +
                         " OrgAdmin account.", orgusername, orgpas), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 8
- testRunner.When("Logged in verify if able to add users.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("Select the users organistion {0}", org), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.Then("Verify if user is able to download the assigned software.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Logged in verify if able to add users.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
+ testRunner.Then("Verify if user is able to download the assigned software.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
  testRunner.And("Verify if user is able to request the unassigned software.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -108,20 +110,20 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void SoftwareHasBeenRealeasedToOrganizationWithoutAnOrgAdmin(string orgusername, string orgpas, string orgName, string country, string state, string city, string bussiness_Unit, string account_Type, string field, string status, string firstName, string lastName, string email, string contactNumber, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Software has been realeased to Organization without an Org Admin", null, exampleTags);
-#line 16
+#line 17
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 17
- testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 18
+ testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
  testRunner.Then(string.Format("In the Home Page, Click on the Login Link and enter the {0} and {1} to login with" +
                         " super admin.", orgusername, orgpas), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 19
- testRunner.And("Select the users organistion.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
+ testRunner.And("Select the users organistion.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
  testRunner.Then(string.Format("Navigate to Orgnazation and create a new one {0},{1},{2},{3},{4},{5},{6},{7},{8}," +
                         "{9},{10},{11}", orgName, firstName, country, lastName, state, email, city, contactNumber, bussiness_Unit, account_Type, field, status), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 21
+#line 22
  testRunner.And("Verify Software cannot be released without org admin.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -129,20 +131,22 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Org Admin Localization issue.")]
-        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", new string[] {
+        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", "NathCorp", new string[] {
                 "source:data.xlsx:sheet1"}, Category="source:data.xlsx:sheet1")]
-        public virtual void OrgAdminLocalizationIssue_(string orgusername, string orgpas, string[] exampleTags)
+        public virtual void OrgAdminLocalizationIssue_(string orgusername, string orgpas, string org, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Org Admin Localization issue.", null, exampleTags);
-#line 27
+#line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 28
- testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 29
+ testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 30
  testRunner.Then(string.Format("In the Home Page, Click on the Login Link and enter the {0} and {1} to login with" +
                         " OrgAdmin account.", orgusername, orgpas), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 30
+#line 31
+ testRunner.And(string.Format("Select the users organistion {0}", org), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
  testRunner.When("Logged in verify localization based on language selected.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -150,20 +154,22 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Org Admin should able to create another org admin.")]
-        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", new string[] {
+        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", "NathCorp", new string[] {
                 "source:data.xlsx:sheet1"}, Category="source:data.xlsx:sheet1")]
-        public virtual void OrgAdminShouldAbleToCreateAnotherOrgAdmin_(string orgusername, string orgpas, string[] exampleTags)
+        public virtual void OrgAdminShouldAbleToCreateAnotherOrgAdmin_(string orgusername, string orgpas, string org, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Org Admin should able to create another org admin.", null, exampleTags);
-#line 36
+#line 38
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 37
+#line 39
  testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
+#line 40
  testRunner.Then(string.Format("In the Home Page, Click on the Login Link and enter the {0} and {1} to login with" +
                         " OrgAdmin account.", orgusername, orgpas), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 39
+#line 41
+ testRunner.And(string.Format("Select the users organistion {0}", org), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
  testRunner.When("Logged in, then verify if Org Admin option is available in the user creation page" +
                     ".", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -172,20 +178,22 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Org Admin should not see expires on in the Software Section.")]
-        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", new string[] {
+        [NUnit.Framework.TestCaseAttribute("rahul66666666666@gmail.com", "Summer#2020", "NathCorp", new string[] {
                 "source:data.xlsx:sheet1"}, Category="source:data.xlsx:sheet1")]
-        public virtual void OrgAdminShouldNotSeeExpiresOnInTheSoftwareSection_(string orgusername, string orgpas, string[] exampleTags)
+        public virtual void OrgAdminShouldNotSeeExpiresOnInTheSoftwareSection_(string orgusername, string orgpas, string org, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Org Admin should not see expires on in the Software Section.", null, exampleTags);
-#line 45
+#line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 46
+#line 49
  testRunner.Given("User navigates to the Salem Home Page.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
+#line 50
  testRunner.Then(string.Format("In the Home Page, Click on the Login Link and enter the {0} and {1} to login with" +
                         " OrgAdmin account.", orgusername, orgpas), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 48
+#line 51
+ testRunner.And(string.Format("Select the users organistion {0}", org), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
  testRunner.When("Logged in, then verify if Org Admin does not have Expires on Column in Software S" +
                     "ection.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
